@@ -13,7 +13,7 @@ export const signup = async (req, res) => {
     if (userAlreadyExists) {
       throw new Error("User already exists");
     }
-    //This is the password spot
+    //This is the password hashing spot
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Verification code
@@ -29,7 +29,9 @@ export const signup = async (req, res) => {
 
     await user.save()
 
-    
+    //jwt
+    generateTokenAndSetCookie(user._id, res);
+
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
