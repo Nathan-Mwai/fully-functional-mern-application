@@ -23,6 +23,8 @@ export const signup = async (req, res) => {
       email,
       password: hashedPassword,
       name,
+      verificationToken,
+      verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000
     });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
