@@ -9,6 +9,7 @@ const app = express()
 const PORT = process.env.PORT || 5005
 
 app.use(express.json())
+// Allows me to parse incoming requests from req.body
 
 app.use("/api/auth", authRoutes)
 
