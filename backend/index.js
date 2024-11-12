@@ -8,9 +8,6 @@ dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 5005
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
 
 app.use("/api/auth", authRoutes)
 
