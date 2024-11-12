@@ -1,6 +1,6 @@
 import { User } from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-import { generateVerificationCode } from "../utils/generateVerificationCode.js";
+import { generateVerificationToken } from "../utils/generateVerificationToken.js";
 
 export const signup = async (req, res) => {
   const { email, password, name } = req.body;
@@ -17,7 +17,7 @@ export const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Verification code
-    const verificationCode = generateVerificationCode();
+    const verificationToken = generateVerificationToken();
 
     const user = new User({
       email,
