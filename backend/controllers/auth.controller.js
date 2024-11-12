@@ -26,6 +26,10 @@ export const signup = async (req, res) => {
       verificationToken,
       verificationTokenExpiresAt: Date.now() + 24 * 60 * 60 * 1000
     });
+
+    await user.save()
+
+    
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
