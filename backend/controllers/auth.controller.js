@@ -51,6 +51,30 @@ export const signup = async (req, res) => {
   }
 };
 
+export const verifyEmail = async (req, res) => {
+  // 1  2  3  4  5  6
+  const {code} = req.body
+  try {
+    const user = await User.findOne({
+      verificationToken: code,
+      verificationTokenExpiresAt: {$gt: Date.now()} // Ensures token has not expired
+    })
+
+    if(!user){
+      return res.status(400).json({success: false, message: "Invalid or expired verification code"})
+    }
+
+    user.isVerified = true
+    user.verificationToken = undefined // After becoming true the verification code becomes undefined
+    user.verificationTokenExpiresAt = undefined // since there is no token this also will have to change
+    await user.save()
+
+    
+  } catch (error) {
+    
+  }
+}
+
 export const login = async (req, res) => {
   res.send("login route");
 };
