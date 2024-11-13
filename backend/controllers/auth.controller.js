@@ -69,7 +69,7 @@ export const verifyEmail = async (req, res) => {
     user.verificationTokenExpiresAt = undefined // since there is no token this also will have to change
     await user.save()
 
-    await sendwelcomeEmail(user.email, user.name);
+    await sendWelcomeEmail(user.email, user.name);
 
   } catch (error) {
     
