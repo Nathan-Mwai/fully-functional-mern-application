@@ -52,7 +52,6 @@ export const signup = async (req, res) => {
 };
 
 export const verifyEmail = async (req, res) => {
-  // 1  2  3  4  5  6
   const {code} = req.body
   try {
     const user = await User.findOne({
@@ -90,5 +89,9 @@ export const login = async (req, res) => {
 };
 
 export const logout = async (req, res) => {
-  res.send("Logout route");
+  res.clearCookie("token")
+  res.status(200).json({
+    success: true,
+    message: "Logged out successfully"
+  })
 };
