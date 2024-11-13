@@ -4,6 +4,11 @@ import { login, logout, signup, verifyEmail,forgotPassword, resetPassword } from
 const router = express.Router();
 
 //set up routes
+// This is the last method then I move to the frontend
+router.get('/check-auth',verifyToken, checkAuth)
+// first ones were for post
+
+
 router.post('/signup', signup);
 
 router.post('/login', login);
