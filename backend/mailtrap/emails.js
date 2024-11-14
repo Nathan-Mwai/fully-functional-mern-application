@@ -25,7 +25,7 @@ export const sendWelcomeEmail = async (email, name) => {
     const response = await sendEmail({
       to: recipient[0].email,
       subject: 'Welcome!',
-      html: WELCOME_EMAIL_TEMPLATE,  // Modify as per your template
+      html: WELCOME_EMAIL_TEMPLATE.replace("{name}", name),  // Modify as per your template
     });
 
     console.log("Welcome email sent successfully", response);
