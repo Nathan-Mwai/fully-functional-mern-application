@@ -28,5 +28,3 @@ export const sendEmail = async ({ to, subject, html, from, text }) => {
     throw new Error('Failed to send email');
   }
 };
-
-// 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
