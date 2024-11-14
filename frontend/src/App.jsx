@@ -1,3 +1,5 @@
+import FloatingShape from "./components/floatingShape";
+
 function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-cyan-800 flex items-center justify-center relative overflow-hidden">
