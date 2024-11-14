@@ -1,5 +1,5 @@
 import { sendEmail } from './mailtrap.config.js'; // Using the updated SendGrid client
-import { PASSWORD_RESET_REQUEST_TEMPLATE, PASSWORD_RESET_SUCCESS_TEMPLATE, VERIFICATION_EMAIL_TEMPLATE } from './emailTemplates.js';
+import { PASSWORD_RESET_REQUEST_TEMPLATE, PASSWORD_RESET_SUCCESS_TEMPLATE, VERIFICATION_EMAIL_TEMPLATE, WELCOME_EMAIL_TEMPLATE } from './emailTemplates.js';
 
 export const sendVerificationEmail = async (email, verificationToken) => {
   const recipient = [{ email }];
@@ -25,7 +25,7 @@ export const sendWelcomeEmail = async (email, name) => {
     const response = await sendEmail({
       to: recipient[0].email,
       subject: 'Welcome!',
-      html: `<p>Welcome, ${name}!</p>`,  // Modify as per your template
+      html: WELCOME_EMAIL_TEMPLATE,  // Modify as per your template
     });
 
     console.log("Welcome email sent successfully", response);
