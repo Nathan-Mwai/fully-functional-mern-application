@@ -12,7 +12,7 @@ const SignUpPage = () => {
 	const [password, setPassword] = useState("");
 	// const navigate = useNavigate();
 
-	const { signup, error, isLoading } = useAuthStore();
+	// const { signup, error, isLoading } = useAuthStore();
 
 	const handleSignUp = async (e) => {
 		e.preventDefault();
@@ -60,7 +60,7 @@ const SignUpPage = () => {
 						onChange={(e) => setPassword(e.target.value)}
 					/>
                     {/* For password strength */}
-					{error && <p className='text-red-500 font-semibold mt-2'>{error}</p>}
+					{/* {error && <p className='text-red-500 font-semibold mt-2'>{error}</p>} */}
 					<PasswordStrengthMeter password={password} />
 
 					<motion.button
