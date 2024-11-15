@@ -13,6 +13,7 @@
     "axios": "^1.7.7",
     "framer-motion": "^11.11.15",
     "lucide-react": "^0.456.0",
+    "project4": "file:..",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
